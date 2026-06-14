@@ -7,10 +7,14 @@ from app.core.database import check_database_connection
 from app.schemas.common import ObjectIdStr
 from app.schemas.pagination import PaginationParams
 
+from app.routes.auth_routes import router as auth_router
+
 app = FastAPI(
     title="TaskFlow API",
     version="1.0.0",
 )
+
+app.include_router(auth_router)
 
 
 class TestPayload(BaseModel):

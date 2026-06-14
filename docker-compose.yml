@@ -15,10 +15,13 @@ services:
   mongodb:
     image: mongo:7
     container_name: taskflow-mongodb
+    ports:
+      - "27018:27017"
     env_file:
       - .env
     volumes:
       - mongo_data:/data/db
+    
 
   mongo-express:
     image: mongo-express:latest
